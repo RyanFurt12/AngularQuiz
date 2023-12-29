@@ -1,0 +1,21 @@
+<div class="quiz_container">
+    <div class="tittle">
+        <h1>{{tittle}}</h1>
+        <h2 *ngIf="!finished">{{questionSelected.question}}</h2></div>
+    <div *ngIf="!finished" class="question_area">
+        <button 
+            *ngFor="let op of questionSelected.options" 
+            (click)="playerChoice(op.alias)"
+            class="question"
+        >
+            {{op.name}}
+        </button>
+    </div>
+
+    <div class="number"><span>{{questionIndex+1}}/{{questionMaxIndex}}</span></div>
+
+    <div *ngIf="finished" class="quiz_result">
+        <h2>Seu resultado é:</h2>
+        <p>{{result}}</p>
+    </div>
+</div>
